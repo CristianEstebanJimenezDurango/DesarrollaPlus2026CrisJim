@@ -17,13 +17,13 @@ public class Main {
             switch (option) {
                 case 1:
                     int gradesCount = Entry.readInt("Ingrese la cantidad de notas: ");
-                    double[] grades = new double[gradesCount];
+                    int[] grades = new int[gradesCount];
                     for (int i = 0; i < grades.length; i++) {
-                        grades[i] = Entry.readDouble("Ingrese la nota " + (i + 1) + ": ");
+                        grades[i] = Entry.readInt("Ingrese la nota " + (i + 1) + ": ");
                     }
                     double average = Calculator.calculateAverage(grades);
-                    double totalAssistance = Entry.readDouble("Ingrese el total de asistencias: ");
-                    double totalClasses = Entry.readDouble("Ingrese el total de clases: ");
+                    int totalAssistance = Entry.readInt("Ingrese el total de asistencias: ");
+                    int totalClasses = Entry.readInt("Ingrese el total de clases: ");
                     double assistancePercentage = Calculator.AssistancePercentage(totalAssistance, totalClasses);
                     State state = Calculator.evaluateState(average, assistancePercentage);
                     OutputCode.printResult(state, average, assistancePercentage);
