@@ -8,9 +8,8 @@ class SaldoInsuficienteException extends Exception {
 }
 
 public class MiniCajero {
-    private static double saldo = 1000.0; // Saldo inicial de ejemplo
+    private static double saldo = 1000.0; 
 
-    // Método para retirar dinero lanzando la excepción propia
     public static void retirar(double monto) throws SaldoInsuficienteException {
         if (monto <= 0) {
             throw new SaldoInsuficienteException("El monto a retirar debe ser mayor a cero.");
