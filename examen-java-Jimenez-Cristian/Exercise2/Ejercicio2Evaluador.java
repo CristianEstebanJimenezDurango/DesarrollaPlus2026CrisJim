@@ -26,14 +26,14 @@ public class Ejercicio2Evaluador{
         System.out.println("===== RESULTADOS DEL CURSO ======");
         System.out.printf("%-10s  %8s %11s %s\n" , "Estudiantes", 
             "Promedio" , "Asistencia", "Estado");
-
+        // se evalue el promedio ponderado de cada fila y su estado para determinar si pasa o no
             for (int i = 0; i < cantidadEstudiantes; i++){
             promediosEstudiantes[i] = EvaluatorCalculator.promedioPonderado(notas[i], pesos);
             estadosEstudiantes[i] = EvaluatorCalculator.evaluar(promediosEstudiantes[i],asistencia[i] );
             System.out.printf("%10s %8.2f %10.0f%% %s\n", estudiantes[i], promediosEstudiantes[i], asistencia[i] * 100, estadosEstudiantes[i]);
 
         }
-
+        // invoca funcion para determianr la cantidad de estudiantes que pasaron
         int[] conteoEstados = EvaluatorCalculator.contarEstados(estadosEstudiantes);
 
         int aprobados = conteoEstados[0];
@@ -43,15 +43,14 @@ public class Ejercicio2Evaluador{
         
         System.out.printf("Aprobados: %d | Recuperacion: %d | Reprobados: %d\n\n", aprobados, recuperacion, reprobados);
         System.out.println("===== ANALISIS POR EVALUACION =====");
-
-        // Llamamos a la utilidad para realizar el análisis por evaluación
+        //invoca la funcion para evaluar los cursos y sus promedios
         EvaluatorCalculator.analizarEvaluaciones(notas, evaluaciones, estudiantes);
 
         int[] orden = new int[cantidadEstudiantes];
         for (int i = 0; i < cantidadEstudiantes; i++) {
             orden[i] = i;
         }
-
+        //se utiliza el metodo burbuja para ordenar los estudiantes de mayor a menor
         for (int i = 0; i <= orden.length - 2; i++) {
             for (int j = 0; j <= orden.length - 2 - i; j++) {
                 if (promediosEstudiantes[orden[j]] < promediosEstudiantes[orden[j + 1]]) {

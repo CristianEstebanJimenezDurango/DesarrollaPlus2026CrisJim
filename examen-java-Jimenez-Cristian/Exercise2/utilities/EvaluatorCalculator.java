@@ -1,7 +1,9 @@
 package utilities;
 
 public class EvaluatorCalculator {
+
     
+    // se crea una funcion para sacar promedio ponderado
     public static double promedioPonderado(double[] notasEstudiante, double[] pesosNotas) {
 
         double suma = 0; 
@@ -11,6 +13,7 @@ public class EvaluatorCalculator {
         return suma;
     }
 
+    //de acuerdo a los estados se determina si paso o no el estudiante
     public static State evaluar(double promedio, double asistencia) {
 
         if (asistencia < 0.75) {
@@ -24,6 +27,8 @@ public class EvaluatorCalculator {
         }
     }
 
+
+    //Se cuenta la cantidad de personas que pasaron, reprobaron o recuperan
     public static int[] contarEstados(State[] estadosEstudiantes) {
         int aprobados = 0;
         int recuperacion = 0;
@@ -48,6 +53,8 @@ public class EvaluatorCalculator {
         return new int[] { aprobados, recuperacion, reprobados };
     }
 
+
+    // se hace un for sobre la columna para determianr el promedio de las ntoas en cada curso y la personas que saco mejor nota junto a su nota
     public static void analizarEvaluaciones(double[][] notas, String[] evaluaciones, String[] estudiantes) {
         int cantidadEstudiantes = estudiantes.length;
         int cantidadCursos = evaluaciones.length;
